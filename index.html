@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+        table,th,td {
+            border: 1px solid black;
+
+        }
+
+        th,td {
+            width: 100px;
+        }
+        .details{
+            max-width: 250px;
+            height: 200px;
+            text-align: center;
+            background-color:rgb(27, 91, 201);
+            margin: auto;
+            border-radius: 15px;
+            font-family:Arial, Helvetica, sans-serif;
+            margin-top: 100px;
+        }
+        table{
+            margin-left: 36%;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="details">
+        <form class="form">
+            <label>Name:</label><br>
+            <input type="text" id="enteredName" placeholder="Enter name..."><br>
+            <label>Surname:</label><br>
+            <input type="text" id="enteredSurname" placeholder="Enter surname..."><br>
+            <label>Age:</label><br>
+            <input type="text" id="enteredAge" placeholder="Enter age..."><br>
+            <label>Ismarried:</label>
+            <input type="checkbox" id="enteredIsmarried"><br>
+            <input type="submit" id="submit">
+        </form>
+    </div>
+    <div class="data">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Age</th>
+                    <th>Ismarried</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="name"></td>
+                    <td id="surname"></td>
+                    <td id="age"></td>
+                    <td id="ismarried"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let form = document.getElementsByClassName('form')
+        let name = document.getElementById('name')
+        let surname = document.getElementById('surname')
+        let age = document.getElementById('age')
+        let ismarried = document.getElementById('ismarried')
+        let inputname = document.getElementById('enteredName')
+        let inputsurname = document.getElementById('enteredSurname')
+        let inputage = document.getElementById('enteredAge')
+        let inputismarried = document.getElementById('enteredIsmarried')
+        let submit = document.getElementById('submit')
+        submit.addEventListener('click', (event) => {
+            event.preventDefault()
+            if (inputname.value === '' || inputsurname.value === '' || inputage.value === '') {
+                alert("input must not be empty!!!")
+                return -1
+                inputname.value = ''
+                inputsurname.value = ''
+                inputage.value = ''
+
+            } else{
+                name.textContent = inputname.value
+                surname.textContent = inputsurname.value
+                age.textContent = inputage.value
+                if (inputismarried.checked) {
+                    ismarried.textContent = 'yes'
+                } else { ismarried.textContent = 'no' }
+                inputname.value = ''
+                inputsurname.value = ''
+                inputage.value = ''
+            }
+            let viewdata = document.createElement('button')
+            viewdata.textContent='View Data'
+            form.ap
+        })
+
+    </script>
+</body>
+
+</html>
